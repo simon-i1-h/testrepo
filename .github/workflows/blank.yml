@@ -14,7 +14,6 @@ jobs:
           --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
           --header 'content-type: application/json' \
           --data '{"body": "yeah."}'
-        false
         curl --request PATCH \
           --fail --silent --show-error \
           --url '${{ github.event.pull_request.url }}' \
