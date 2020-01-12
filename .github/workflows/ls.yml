@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: ls
-      run: pwd && ls -a . && echo end.
+      run: pwd && ls -a . && echo end. && nproc
