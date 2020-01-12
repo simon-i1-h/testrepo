@@ -1,0 +1,8 @@
+name: ls
+on: push
+jobs:
+  ls:
+    runs-on: ubuntu-latest
+    steps:
+    - name: ls
+      run: ls
