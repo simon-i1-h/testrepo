@@ -8,19 +8,19 @@ jobs:
     steps:
     - name: Post comment and close Pull Request
       run: |
-        function msg() {
+        function comment() {
           cat <<EOF
         "yeah".
         foo
         bar
         EOF
         }
-        function msg_json() {
+        function comment_json() {
           echo '{"body": '
-          msg | jq --raw-input --slurp --monochrome-output .
+          comment | jq --raw-input --slurp --monochrome-output .
           echo '}'
         }
-        msg_json | curl --request POST --fail --silent --show-error \
+        comment_json | curl --request POST --fail --silent --show-error \
           --url '${{ github.event.pull_request.comments_url }}' \
           --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
           --header 'content-type: application/json' --data @-
